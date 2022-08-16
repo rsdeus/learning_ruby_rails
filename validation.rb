@@ -1,19 +1,20 @@
 module Validation
 
-    attr_accessor :foo
+  attr_accessor :foo
 
-    def empty?
-        return true if foo.nil?
-        foo.empty?
-    end
+  def empty?
+    return true if foo.nil?
+    foo.empty?
+  end
+
 end
 
 class Gaveta
 
-    include Validation
+  include Validation
 
-    def initialize(**kwargs)
-        @foo = kwargs[:foo]
-    end
+  def initialize(foo=nil)
+    @foo = foo
+  end
 
 end
