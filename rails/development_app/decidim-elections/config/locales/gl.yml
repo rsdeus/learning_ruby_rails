@@ -1,0 +1,225 @@
+gl:
+  activemodel:
+    attributes:
+      answer:
+        description: Descrición
+        image: Imaxe
+        proposals: Propostas relacionadas
+        title: Título
+      election:
+        description: Descrición
+        end_time: A votación remata ás
+        start_time: A votación comeza ás
+        title: Título
+      question:
+        description: Descrición
+        title: Título
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Resposta
+        other: Respostas
+      decidim/elections/question:
+        one: Pregunta
+        other: Preguntas
+      decidim/votings/voting:
+        one: Votación
+        other: Votacións
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Votar
+    elections:
+      actions:
+        confirm_destroy: Estás certo/a?
+        edit: Editar
+        manage_answers: Xestionar respostas
+        manage_questions: Xestionar preguntas
+        manage_steps: Xestionar pasos
+        new: Nova %{name}
+        publish: Publicar
+        title: Accións
+      admin:
+        answers:
+          edit:
+            title: Editar resposta
+            update: Actualizar resposta
+          index:
+            title: Respostas
+          new:
+            create: Crear resposta
+            title: Nova resposta
+        elections:
+          index:
+            title: Eleccións
+          new:
+            create: Crear elección
+            title: Nova elección
+        exports:
+          elections: Eleccións
+        models:
+          answer:
+            name: Resposta
+          election:
+            name: Elección
+          question:
+            name: Pregunta
+          trustee:
+            name: Comisario
+        questions:
+          edit:
+            title: Editar pregunta
+            update: Actualizar pregunta
+          index:
+            title: Preguntas
+          new:
+            create: Crear pregunta
+            title: Nova pregunta
+        steps:
+          create_election:
+            errors:
+              minimum_answers: As preguntas teñen de ter <strong>polo menos dúas respostas</strong>.
+            not_used_trustee: "(non usada)"
+          tally_ended:
+            title: Resultados calculados
+      election_m:
+        badge_name:
+          finished: Finalizada
+          ongoing: Activa
+          upcoming: Vindeiras
+        footer:
+          view: Ver
+          vote: Votar
+        label:
+          date: Datas
+        questions: Preguntas %{count}
+        unspecified: Sen especificar
+      elections:
+        filters:
+          active: Activa
+          all: Todas
+          finished: Finalizada
+          search: Procurar
+          state: Estado
+          upcoming: Vindeiras
+        filters_small_view:
+          close_modal: Pechar modal
+          filter: Filtrar
+          filter_by: Filtrar por
+        preview:
+          available_answers: Respostas dispoñibles
+          description: Estas son as preguntas que atoparás non proceso de votación
+        results:
+          description: Estes son os resultados da votación, para cada pregunta
+          selected: Seleccionado
+          votes:
+            one: "%{count} voto"
+            other: "%{count} votos"
+            zero: "%{count} votos"
+        show:
+          action-button:
+            change-vote: Troca o teu voto
+            vote: Comezar votación
+            vote-again: Votar de novo
+          callout:
+            already-voted: Xa votaches nesta elección. Podes trocar o teu voto ou verificalo.
+            vote-rejected: Non foi posíbel verificar o teu voto. Por favor, faino de novo.
+          verify:
+            already-voted: Xa votaches?
+            verify-here: Verifica o teu voto aquí.
+            will-verify: Poderás verificar o teu voto unha vez comece a elección.
+      feedback:
+        answer:
+          invalid: Produciuse un problema ao enviar os teu comentario.
+      models:
+        answer:
+          fields:
+            title: Título
+        election:
+          fields:
+            title: Título
+        question:
+          fields:
+            answers: Respostas
+            title: Título
+        trustees_participatory_space:
+          fields:
+            inactive: inactivo
+      trustee_zone:
+        elections:
+          key_ceremony_steps:
+            back: Volver
+            list:
+              status: Estado
+              task: Tarefa
+            start: Comezar
+            status:
+              pending: Pendente
+              processing: Procesando
+        trustees:
+          show:
+            elections:
+              list:
+                action_required:
+                  'false': 'Non'
+                  name: Acción requirida?
+                bb_status: Estado
+            identification_keys:
+              submit: Enviar
+      votes:
+        confirmed:
+          error: Sentímolo, produciuse un erro confirmando o voto. Por favor, vota de novo.
+          experience: Como valoras a túa experiencia?
+          feedback: Dános a túa opinión
+          header: Voto confirmado
+          lead: O teu voto foi emitido!
+        encrypting:
+          header: Codificando o voto...
+          text: O teu voto está ser cifrado para garantir que pode ser emitido de xeito anónimo.
+        header:
+          confirm: Confirma o teu voto
+          confirmed: Voto confirmado
+          encrypting: Confirmando o voto
+        modal:
+          close: Pechar
+        processing:
+          header: Procesando...
+          text: Recibiuse o teu voto e está a ser procesado. Por favor, agarda.
+        update:
+          error: Produciuse un problema ao actualizar o estado do voto
+          success: Estado do voto actualizado con éxito
+    events:
+      elections:
+        votes:
+          accepted_votes:
+            email_intro: 'O teu voto foi aceptado! Empregando o teu token de votación: %{encrypted_vote_hash}, podes verificar o teu voto <a href="%{verify_url}">aquí</a>.'
+            email_outro: Recibiches esta notificación porque votaches pola elección de %{resource_name}.
+            email_subject: O teu voto por %{resource_name} foi aceptado.
+            notification_title: 'O teu voto foi aceptado, verifícao <a href="%{verify_url}">aquí</a> empregando o teu token de votación: %{encrypted_vote_hash}'
+    votings:
+      admin:
+        menu:
+          votings_submenu:
+            components: Compoñentes
+            monitoring_committee_members: Comité de seguimento
+        votings:
+          form:
+            select_a_voting_type: Por favor, selecciona un tipo de votación
+            voting_type:
+              hybrid: Híbrido
+              in_person: En persoa
+              online: En liña
+      polling_officer_zone:
+        polling_officers:
+          show:
+            actions:
+              count_votes: Contar os votos das furnas
+              identify_person: Identificar e verificar unha persoa
+            polling_officer_role_description: Fuches asignado para actuar como xestor de mesa (Presidente ou Administrador) nalgunhas das eleccións celebradas nesta plataforma.
+            polling_stations:
+              list:
+                actions: Accións
+                role: O teu rol
+                voting: Votacións
+              no_polling_stations: Aínda non fuches asignado/a a ningún punto de votación.
