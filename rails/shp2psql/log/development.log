@@ -1,0 +1,882 @@
+Started GET "/" for ::1 at 2022-08-16 16:02:30 -0300
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/renato/.asdf/installs/ruby/2.7.5/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/renato/.asdf/installs/ruby/2.7.5/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.6ms | Allocations: 677)
+Completed 200 OK in 21ms (Views: 7.7ms | ActiveRecord: 0.0ms | Allocations: 6500)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (8.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMetadata (20220816191002)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "metadata" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "filename" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220816191002"]]
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-08-16 19:12:39.754106"], ["updated_at", "2022-08-16 19:12:39.754106"]]
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2022-08-16 16:17:29 -0300
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/renato/.asdf/installs/ruby/2.7.5/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/renato/.asdf/installs/ruby/2.7.5/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.4ms | Allocations: 572)
+Completed 200 OK in 11ms (Views: 4.9ms | ActiveRecord: 0.0ms | Allocations: 5225)
+
+
+Started GET "/metadata" for ::1 at 2022-08-16 16:17:34 -0300
+Processing by MetadataController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/index.html.erb within layouts/application
+  [1m[36mMetadatum Load (0.2ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata"[0m
+  ↳ app/views/metadata/index.html.erb:6
+  Rendered metadata/index.html.erb within layouts/application (Duration: 6.1ms | Allocations: 993)
+  Rendered layout layouts/application.html.erb (Duration: 251.3ms | Allocations: 100761)
+Completed 200 OK in 259ms (Views: 253.1ms | ActiveRecord: 0.2ms | Allocations: 102172)
+
+
+Started GET "/metadata/new" for ::1 at 2022-08-16 16:17:40 -0300
+Processing by MetadataController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/new.html.erb within layouts/application
+  Rendered metadata/_form.html.erb (Duration: 18.9ms | Allocations: 4568)
+  Rendered metadata/new.html.erb within layouts/application (Duration: 20.0ms | Allocations: 4883)
+  Rendered layout layouts/application.html.erb (Duration: 25.8ms | Allocations: 7069)
+Completed 200 OK in 34ms (Views: 27.0ms | ActiveRecord: 0.7ms | Allocations: 11331)
+
+
+Started POST "/metadata" for ::1 at 2022-08-16 16:18:06 -0300
+Processing by MetadataController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "metadatum"=>{"filename"=>"YearlyDeforestation"}, "commit"=>"Create Metadatum"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/metadata_controller.rb:27:in `block in create'
+  [1m[36mMetadatum Create (0.4ms)[0m  [1m[32mINSERT INTO "metadata" ("filename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["filename", "YearlyDeforestation"], ["created_at", "2022-08-16 19:18:06.143103"], ["updated_at", "2022-08-16 19:18:06.143103"]]
+  ↳ app/controllers/metadata_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/metadata_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/metadata/1
+Completed 302 Found in 16ms (ActiveRecord: 5.9ms | Allocations: 2806)
+
+
+Started GET "/metadata/1" for ::1 at 2022-08-16 16:18:06 -0300
+Processing by MetadataController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mMetadatum Load (0.3ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata" WHERE "metadata"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/metadata_controller.rb:63:in `set_metadatum'
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/show.html.erb within layouts/application
+  Rendered metadata/_metadatum.html.erb (Duration: 0.8ms | Allocations: 171)
+  Rendered metadata/show.html.erb within layouts/application (Duration: 7.2ms | Allocations: 1358)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 3535)
+Completed 200 OK in 21ms (Views: 13.5ms | ActiveRecord: 0.3ms | Allocations: 6035)
+
+
+Started GET "/metadata" for ::1 at 2022-08-16 16:18:12 -0300
+Processing by MetadataController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/index.html.erb within layouts/application
+  [1m[36mMetadatum Load (0.2ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata"[0m
+  ↳ app/views/metadata/index.html.erb:6
+  Rendered metadata/_metadatum.html.erb (Duration: 0.2ms | Allocations: 21)
+  Rendered metadata/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 893)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 3072)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.2ms | Allocations: 3346)
+
+
+Started GET "/metadata/new" for ::1 at 2022-08-16 16:18:15 -0300
+Processing by MetadataController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/new.html.erb within layouts/application
+  Rendered metadata/_form.html.erb (Duration: 4.1ms | Allocations: 799)
+  Rendered metadata/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 896)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 3073)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.0ms | Allocations: 3338)
+
+
+Started POST "/metadata" for ::1 at 2022-08-16 16:18:28 -0300
+Processing by MetadataController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "metadatum"=>{"filename"=>"Biomas_IBGE2018"}, "commit"=>"Create Metadatum"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/metadata_controller.rb:27:in `block in create'
+  [1m[36mMetadatum Create (0.5ms)[0m  [1m[32mINSERT INTO "metadata" ("filename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["filename", "Biomas_IBGE2018"], ["created_at", "2022-08-16 19:18:28.847998"], ["updated_at", "2022-08-16 19:18:28.847998"]]
+  ↳ app/controllers/metadata_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/metadata_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/metadata/2
+Completed 302 Found in 18ms (ActiveRecord: 6.4ms | Allocations: 2109)
+
+
+Started GET "/metadata/2" for ::1 at 2022-08-16 16:18:28 -0300
+Processing by MetadataController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mMetadatum Load (0.3ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata" WHERE "metadata"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/metadata_controller.rb:63:in `set_metadatum'
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/show.html.erb within layouts/application
+  Rendered metadata/_metadatum.html.erb (Duration: 0.2ms | Allocations: 21)
+  Rendered metadata/show.html.erb within layouts/application (Duration: 3.2ms | Allocations: 616)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 2786)
+Completed 200 OK in 15ms (Views: 12.0ms | ActiveRecord: 0.3ms | Allocations: 3493)
+
+
+Started GET "/metadata" for ::1 at 2022-08-16 16:18:31 -0300
+Processing by MetadataController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/index.html.erb within layouts/application
+  [1m[36mMetadatum Load (0.1ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata"[0m
+  ↳ app/views/metadata/index.html.erb:6
+  Rendered metadata/_metadatum.html.erb (Duration: 0.2ms | Allocations: 21)
+  Rendered metadata/_metadatum.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered metadata/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1024)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 3202)
+Completed 200 OK in 10ms (Views: 9.8ms | ActiveRecord: 0.1ms | Allocations: 3468)
+
+
+Started GET "/rails/conductor/action_mailbox/inbound_emails" for ::1 at 2022-08-16 16:22:13 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::Conductor::ActionMailbox::InboundEmailsController#index as HTML
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.1ms | Allocations: 9172)
+
+
+  
+ActiveRecord::StatementInvalid (Could not find table 'action_mailbox_inbound_emails'):
+  
+activerecord (7.0.3.1) lib/active_record/connection_adapters/sqlite3_adapter.rb:387:in `table_structure'
+activerecord (7.0.3.1) lib/active_record/connection_adapters/abstract/schema_statements.rb:116:in `columns'
+activerecord (7.0.3.1) lib/active_record/connection_adapters/schema_cache.rb:117:in `block in columns'
+activerecord (7.0.3.1) lib/active_record/connection_adapters/schema_cache.rb:116:in `fetch'
+activerecord (7.0.3.1) lib/active_record/connection_adapters/schema_cache.rb:116:in `columns'
+activerecord (7.0.3.1) lib/active_record/connection_adapters/schema_cache.rb:125:in `block in columns_hash'
+activerecord (7.0.3.1) lib/active_record/connection_adapters/schema_cache.rb:124:in `fetch'
+activerecord (7.0.3.1) lib/active_record/connection_adapters/schema_cache.rb:124:in `columns_hash'
+activerecord (7.0.3.1) lib/active_record/model_schema.rb:568:in `load_schema!'
+activerecord (7.0.3.1) lib/active_record/attributes.rb:264:in `load_schema!'
+activerecord (7.0.3.1) lib/active_record/encryption/encryptable_record.rb:122:in `load_schema!'
+activerecord (7.0.3.1) lib/active_record/model_schema.rb:554:in `block in load_schema'
+activerecord (7.0.3.1) lib/active_record/model_schema.rb:551:in `synchronize'
+activerecord (7.0.3.1) lib/active_record/model_schema.rb:551:in `load_schema'
+activerecord (7.0.3.1) lib/active_record/model_schema.rb:407:in `columns_hash'
+activerecord (7.0.3.1) lib/active_record/relation/query_methods.rb:1510:in `arel_column'
+activerecord (7.0.3.1) lib/active_record/relation/query_methods.rb:1639:in `order_column'
+activerecord (7.0.3.1) lib/active_record/relation/query_methods.rb:1610:in `block (2 levels) in preprocess_order_args'
+activerecord (7.0.3.1) lib/active_record/relation/query_methods.rb:1605:in `each'
+activerecord (7.0.3.1) lib/active_record/relation/query_methods.rb:1605:in `map'
+activerecord (7.0.3.1) lib/active_record/relation/query_methods.rb:1605:in `block in preprocess_order_args'
+activerecord (7.0.3.1) lib/active_record/relation/query_methods.rb:1600:in `map!'
+activerecord (7.0.3.1) lib/active_record/relation/query_methods.rb:1600:in `preprocess_order_args'
+activerecord (7.0.3.1) lib/active_record/relation/query_methods.rb:434:in `order!'
+activerecord (7.0.3.1) lib/active_record/relation/query_methods.rb:429:in `order'
+activerecord (7.0.3.1) lib/active_record/querying.rb:22:in `order'
+actionmailbox (7.0.3.1) app/controllers/rails/conductor/action_mailbox/inbound_emails_controller.rb:6:in `index'
+actionpack (7.0.3.1) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.0.3.1) lib/abstract_controller/base.rb:215:in `process_action'
+actionpack (7.0.3.1) lib/action_controller/metal/rendering.rb:53:in `process_action'
+actionpack (7.0.3.1) lib/abstract_controller/callbacks.rb:234:in `block in process_action'
+activesupport (7.0.3.1) lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+actiontext (7.0.3.1) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (7.0.3.1) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.0.3.1) lib/active_support/callbacks.rb:127:in `instance_exec'
+activesupport (7.0.3.1) lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+activesupport (7.0.3.1) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.3.1) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.3.1) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.3.1) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.3.1) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3.1) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3.1) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.3.1) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.3.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.3.1) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.3.1) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.3.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.3.1) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.3.1) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.3.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.3.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.3.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.3.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.3.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.3.1) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.4) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.4) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.4) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/cookies.rb:697:in `call'
+activerecord (7.0.3.1) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.3.1) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.3.1) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.3.1) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.3.1) lib/active_support/tagged_logging.rb:114:in `block in tagged'
+activesupport (7.0.3.1) lib/active_support/tagged_logging.rb:38:in `tagged'
+activesupport (7.0.3.1) lib/active_support/tagged_logging.rb:114:in `tagged'
+railties (7.0.3.1) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.3.1) lib/rails/engine.rb:530:in `call'
+puma (5.6.4) lib/puma/configuration.rb:252:in `call'
+puma (5.6.4) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.4) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.4) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.4) lib/puma/server.rb:441:in `process_client'
+puma (5.6.4) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/rails/" for ::1 at 2022-08-16 16:22:23 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/rails"):
+  
+Started GET "/rails" for ::1 at 2022-08-16 16:22:26 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/rails"):
+  
+Started GET "/rails_conductor_inbound_emails" for ::1 at 2022-08-16 16:22:47 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/rails_conductor_inbound_emails"):
+  
+Started GET "/" for ::1 at 2022-08-16 16:26:40 -0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/renato/.asdf/installs/ruby/2.7.5/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/renato/.asdf/installs/ruby/2.7.5/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.2ms | Allocations: 374)
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.0ms | Allocations: 1191)
+
+
+Started GET "/metadata.json" for ::1 at 2022-08-16 16:29:23 -0300
+Processing by MetadataController#index as JSON
+  Rendering metadata/index.json.jbuilder
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/metadata/index.json.jbuilder:1
+  [1m[36mMetadatum Load (0.1ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata"[0m
+  ↳ app/views/metadata/index.json.jbuilder:1
+  Rendered collection of metadata/_metadatum.json.jbuilder [2 times] (Duration: 1.1ms | Allocations: 365)
+  Rendered metadata/index.json.jbuilder (Duration: 9.6ms | Allocations: 5489)
+Completed 200 OK in 14ms (Views: 11.1ms | ActiveRecord: 1.0ms | Allocations: 6954)
+
+
+Started GET "/metadata" for ::1 at 2022-08-16 16:51:20 -0300
+Processing by MetadataController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/metadata/index.html.erb:6
+  [1m[36mMetadatum Load (0.5ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata"[0m
+  ↳ app/views/metadata/index.html.erb:6
+  Rendered metadata/_metadatum.html.erb (Duration: 1.1ms | Allocations: 172)
+  Rendered metadata/_metadatum.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered metadata/index.html.erb within layouts/application (Duration: 19.8ms | Allocations: 4136)
+  Rendered layout layouts/application.html.erb (Duration: 75.9ms | Allocations: 38854)
+Completed 200 OK in 77ms (Views: 76.5ms | ActiveRecord: 1.3ms | Allocations: 39192)
+
+
+Started GET "/metadata/1" for ::1 at 2022-08-16 16:51:28 -0300
+Processing by MetadataController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMetadatum Load (0.2ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata" WHERE "metadata"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/metadata_controller.rb:63:in `set_metadatum'
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/show.html.erb within layouts/application
+  Rendered metadata/_metadatum.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered metadata/show.html.erb within layouts/application (Duration: 2.8ms | Allocations: 815)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 2994)
+Completed 200 OK in 11ms (Views: 7.7ms | ActiveRecord: 0.2ms | Allocations: 5478)
+
+
+Started GET "/" for ::1 at 2022-08-17 09:36:38 -0300
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MetadataController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/index.html.erb within layouts/application
+  [1m[36mMetadatum Load (0.3ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata"[0m
+  ↳ app/views/metadata/index.html.erb:6
+  Rendered metadata/_metadatum.html.erb (Duration: 1.3ms | Allocations: 177)
+  Rendered metadata/_metadatum.html.erb (Duration: 0.3ms | Allocations: 20)
+  Rendered metadata/index.html.erb within layouts/application (Duration: 24.7ms | Allocations: 5911)
+  Rendered layout layouts/application.html.erb (Duration: 150.8ms | Allocations: 40539)
+Completed 200 OK in 184ms (Views: 154.8ms | ActiveRecord: 1.2ms | Allocations: 45749)
+
+
+Started GET "/metadata/1" for ::1 at 2022-08-17 09:36:50 -0300
+Processing by MetadataController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMetadatum Load (0.3ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata" WHERE "metadata"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/metadata_controller.rb:63:in `set_metadatum'
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/show.html.erb within layouts/application
+  Rendered metadata/_metadatum.html.erb (Duration: 0.4ms | Allocations: 21)
+  Rendered metadata/show.html.erb within layouts/application (Duration: 8.9ms | Allocations: 797)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 2975)
+Completed 200 OK in 22ms (Views: 14.7ms | ActiveRecord: 0.3ms | Allocations: 5471)
+
+
+Started GET "/metadata/1/edit" for ::1 at 2022-08-17 09:36:54 -0300
+Processing by MetadataController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMetadatum Load (0.1ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata" WHERE "metadata"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/metadata_controller.rb:63:in `set_metadatum'
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/edit.html.erb within layouts/application
+  Rendered metadata/_form.html.erb (Duration: 18.8ms | Allocations: 3064)
+  Rendered metadata/edit.html.erb within layouts/application (Duration: 22.2ms | Allocations: 3424)
+  Rendered layout layouts/application.html.erb (Duration: 27.0ms | Allocations: 5601)
+Completed 200 OK in 30ms (Views: 27.9ms | ActiveRecord: 0.1ms | Allocations: 6355)
+
+
+Started GET "/metadata" for ::1 at 2022-08-17 09:36:57 -0300
+Processing by MetadataController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/index.html.erb within layouts/application
+  [1m[36mMetadatum Load (0.1ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata"[0m
+  ↳ app/views/metadata/index.html.erb:6
+  Rendered metadata/_metadatum.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered metadata/_metadatum.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered metadata/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1036)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 3215)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.1ms | Allocations: 3489)
+
+
+Started GET "/" for ::1 at 2022-08-17 09:37:04 -0300
+Processing by MetadataController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/index.html.erb within layouts/application
+  [1m[36mMetadatum Load (0.1ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata"[0m
+  ↳ app/views/metadata/index.html.erb:6
+  Rendered metadata/_metadatum.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered metadata/_metadatum.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered metadata/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1032)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 3211)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.1ms | Allocations: 3482)
+
+
+Started GET "/metadata/2" for ::1 at 2022-08-17 09:47:00 -0300
+Processing by MetadataController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/metadata_controller.rb:63:in `set_metadatum'
+  [1m[36mMetadatum Load (0.1ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata" WHERE "metadata"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/metadata_controller.rb:63:in `set_metadatum'
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/show.html.erb within layouts/application
+  Rendered metadata/_metadatum.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered metadata/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 588)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 2757)
+Completed 200 OK in 8ms (Views: 5.4ms | ActiveRecord: 0.5ms | Allocations: 3960)
+
+
+Started DELETE "/metadata/2" for ::1 at 2022-08-17 09:47:03 -0300
+Processing by MetadataController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"2"}
+  [1m[36mMetadatum Load (0.1ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata" WHERE "metadata"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/metadata_controller.rb:63:in `set_metadatum'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/metadata_controller.rb:52:in `destroy'
+  [1m[36mMetadatum Destroy (0.2ms)[0m  [1m[31mDELETE FROM "metadata" WHERE "metadata"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/metadata_controller.rb:52:in `destroy'
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/metadata_controller.rb:52:in `destroy'
+Redirected to http://localhost:3000/metadata
+Completed 302 Found in 9ms (ActiveRecord: 5.1ms | Allocations: 2309)
+
+
+Started GET "/metadata" for ::1 at 2022-08-17 09:47:03 -0300
+Processing by MetadataController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/index.html.erb within layouts/application
+  [1m[36mMetadatum Load (0.2ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata"[0m
+  ↳ app/views/metadata/index.html.erb:6
+  Rendered metadata/_metadatum.html.erb (Duration: 0.2ms | Allocations: 21)
+  Rendered metadata/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 972)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 3151)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.2ms | Allocations: 3466)
+
+
+Started GET "/metadata" for ::1 at 2022-08-17 09:48:02 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MetadataController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/index.html.erb within layouts/application
+  [1m[36mMetadatum Load (0.2ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata"[0m
+  ↳ app/views/metadata/index.html.erb:6
+  Rendered metadata/_metadatum.html.erb (Duration: 0.6ms | Allocations: 177)
+  Rendered metadata/index.html.erb within layouts/application (Duration: 20.0ms | Allocations: 5788)
+  Rendered layout layouts/application.html.erb (Duration: 83.4ms | Allocations: 40096)
+Completed 200 OK in 95ms (Views: 85.5ms | ActiveRecord: 1.2ms | Allocations: 45306)
+
+
+Started GET "/metadata/1" for ::1 at 2022-08-17 09:48:06 -0300
+Processing by MetadataController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMetadatum Load (0.3ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata" WHERE "metadata"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/metadata_controller.rb:63:in `set_metadatum'
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/show.html.erb within layouts/application
+  Rendered metadata/_metadatum.html.erb (Duration: 0.2ms | Allocations: 21)
+  Rendered metadata/show.html.erb within layouts/application (Duration: 3.3ms | Allocations: 814)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 2994)
+Completed 200 OK in 15ms (Views: 8.9ms | ActiveRecord: 0.3ms | Allocations: 5492)
+
+
+Started DELETE "/metadata/1" for ::1 at 2022-08-17 09:48:08 -0300
+Processing by MetadataController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mMetadatum Load (0.3ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata" WHERE "metadata"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/metadata_controller.rb:63:in `set_metadatum'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/metadata_controller.rb:52:in `destroy'
+  [1m[36mMetadatum Destroy (0.5ms)[0m  [1m[31mDELETE FROM "metadata" WHERE "metadata"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/metadata_controller.rb:52:in `destroy'
+  [1m[36mTRANSACTION (6.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/metadata_controller.rb:52:in `destroy'
+Redirected to http://localhost:3000/metadata
+Completed 302 Found in 19ms (ActiveRecord: 7.3ms | Allocations: 2338)
+
+
+Started GET "/metadata" for ::1 at 2022-08-17 09:48:08 -0300
+Processing by MetadataController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/index.html.erb within layouts/application
+  [1m[36mMetadatum Load (0.2ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata"[0m
+  ↳ app/views/metadata/index.html.erb:6
+  Rendered metadata/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 756)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 2936)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.2ms | Allocations: 3254)
+
+
+Started GET "/metadata/new" for ::1 at 2022-08-17 09:48:16 -0300
+Processing by MetadataController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/new.html.erb within layouts/application
+  Rendered metadata/_form.html.erb (Duration: 6.6ms | Allocations: 3010)
+  Rendered metadata/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 3318)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 5506)
+Completed 200 OK in 12ms (Views: 11.6ms | ActiveRecord: 0.0ms | Allocations: 5839)
+
+
+Started POST "/metadata" for ::1 at 2022-08-17 09:48:25 -0300
+Processing by MetadataController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "metadatum"=>{"filename"=>"YearlyDeforestation"}, "commit"=>"Create Metadatum"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/metadata_controller.rb:27:in `block in create'
+  [1m[36mMetadatum Create (0.4ms)[0m  [1m[32mINSERT INTO "metadata" ("filename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["filename", "YearlyDeforestation"], ["created_at", "2022-08-17 12:48:25.063970"], ["updated_at", "2022-08-17 12:48:25.063970"]]
+  ↳ app/controllers/metadata_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/metadata_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/metadata/3
+Completed 302 Found in 15ms (ActiveRecord: 5.8ms | Allocations: 2710)
+
+
+Started GET "/metadata/3" for ::1 at 2022-08-17 09:48:25 -0300
+Processing by MetadataController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[36mMetadatum Load (0.3ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata" WHERE "metadata"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/metadata_controller.rb:63:in `set_metadatum'
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/show.html.erb within layouts/application
+  Rendered metadata/_metadatum.html.erb (Duration: 0.2ms | Allocations: 21)
+  Rendered metadata/show.html.erb within layouts/application (Duration: 2.6ms | Allocations: 695)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 2865)
+Completed 200 OK in 17ms (Views: 13.5ms | ActiveRecord: 0.3ms | Allocations: 3570)
+
+
+Started GET "/metadata/3" for ::1 at 2022-08-17 09:48:48 -0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MetadataController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mMetadatum Load (0.2ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata" WHERE "metadata"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/metadata_controller.rb:63:in `set_metadatum'
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/show.html.erb within layouts/application
+  Rendered metadata/show.html.erb within layouts/application (Duration: 7.8ms | Allocations: 2015)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 2093)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 0.8ms | Allocations: 13346)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <p style="color: green"><%= notice %></p>
+
+<%= render @metadatum %>
+
+<div>
+  <%= link_to "Edit this metadatum", edit_metadatum_path(@metadatum) %> |
+  <%= link_to "Back to metadata", metadata_path %>
+
+  <%= button_to "Destroy this metadatum", @metadatum, method: :delete { confirm: 'Are you sure?' } %>
+</div>
+
+):
+1:    <p style="color: green"><%= notice %></p>
+2:    
+3:    <%= render @metadatum %>
+4:    
+5:    <div>
+6:      <%= link_to "Edit this metadatum", edit_metadatum_path(@metadatum) %> |
+7:      <%= link_to "Back to metadata", metadata_path %>
+8:    
+9:      <%= button_to "Destroy this metadatum", @metadatum, method: :delete { confirm: 'Are you sure?' } %>
+10:    </div>
+  
+app/views/metadata/show.html.erb:9: syntax error, unexpected '{', expecting ')'
+app/views/metadata/show.html.erb:9: syntax error, unexpected '}', expecting ')'
+app/views/metadata/show.html.erb:13: syntax error, unexpected `end', expecting ')'
+app/views/metadata/show.html.erb:9: syntax error, unexpected '{', expecting ')'
+app/views/metadata/show.html.erb:9: syntax error, unexpected '}', expecting ')'
+app/views/metadata/show.html.erb:13: syntax error, unexpected `end', expecting ')'
+app/views/metadata/show.html.erb:9: syntax error, unexpected '{', expecting ')'
+app/views/metadata/show.html.erb:9: syntax error, unexpected '}', expecting ')'
+app/views/metadata/show.html.erb:13: syntax error, unexpected `end', expecting ')'
+app/views/metadata/show.html.erb:9: syntax error, unexpected '{', expecting ')'
+app/views/metadata/show.html.erb:9: syntax error, unexpected '}', expecting ')'
+app/views/metadata/show.html.erb:13: syntax error, unexpected `end', expecting ')'
+app/views/metadata/show.html.erb:9: syntax error, unexpected '{', expecting ')'
+app/views/metadata/show.html.erb:9: syntax error, unexpected '}', expecting ')'
+app/views/metadata/show.html.erb:13: syntax error, unexpected `end', expecting ')'
+app/views/metadata/show.html.erb:9: syntax error, unexpected '{', expecting ')'
+app/views/metadata/show.html.erb:9: syntax error, unexpected '}', expecting ')'
+app/views/metadata/show.html.erb:13: syntax error, unexpected `end', expecting ')'
+Started GET "/metadata/3" for ::1 at 2022-08-17 09:49:51 -0300
+Processing by MetadataController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mMetadatum Load (0.1ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata" WHERE "metadata"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/metadata_controller.rb:63:in `set_metadatum'
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/show.html.erb within layouts/application
+  Rendered metadata/show.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1185)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 1261)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.1ms | Allocations: 2622)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <p style="color: green"><%= notice %></p>
+
+<%= render @metadatum %>
+
+<div>
+  <%= link_to "Edit this metadatum", edit_metadatum_path(@metadatum) %> |
+  <%= link_to "Back to metadata", metadata_path %>
+
+  <%= button_to "Destroy this metadatum", @metadatum, method: :delete, { confirm: 'Are you sure?' } %>
+</div>
+
+):
+1:    <p style="color: green"><%= notice %></p>
+2:    
+3:    <%= render @metadatum %>
+4:    
+5:    <div>
+6:      <%= link_to "Edit this metadatum", edit_metadatum_path(@metadatum) %> |
+7:      <%= link_to "Back to metadata", metadata_path %>
+8:    
+9:      <%= button_to "Destroy this metadatum", @metadatum, method: :delete, { confirm: 'Are you sure?' } %>
+10:    </div>
+  
+app/views/metadata/show.html.erb:9: syntax error, unexpected ')', expecting =>
+app/views/metadata/show.html.erb:13: syntax error, unexpected `end', expecting ')'
+app/views/metadata/show.html.erb:9: syntax error, unexpected ')', expecting =>
+app/views/metadata/show.html.erb:13: syntax error, unexpected `end', expecting ')'
+app/views/metadata/show.html.erb:9: syntax error, unexpected ')', expecting =>
+app/views/metadata/show.html.erb:13: syntax error, unexpected `end', expecting ')'
+app/views/metadata/show.html.erb:9: syntax error, unexpected ')', expecting =>
+app/views/metadata/show.html.erb:13: syntax error, unexpected `end', expecting ')'
+app/views/metadata/show.html.erb:9: syntax error, unexpected ')', expecting =>
+app/views/metadata/show.html.erb:13: syntax error, unexpected `end', expecting ')'
+app/views/metadata/show.html.erb:9: syntax error, unexpected ')', expecting =>
+app/views/metadata/show.html.erb:13: syntax error, unexpected `end', expecting ')'
+Started GET "/metadata/3" for ::1 at 2022-08-17 09:50:04 -0300
+Processing by MetadataController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mMetadatum Load (0.1ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata" WHERE "metadata"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/metadata_controller.rb:63:in `set_metadatum'
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/show.html.erb within layouts/application
+  Rendered metadata/_metadatum.html.erb (Duration: 0.8ms | Allocations: 176)
+  Rendered metadata/show.html.erb within layouts/application (Duration: 15.6ms | Allocations: 3204)
+  Rendered layout layouts/application.html.erb (Duration: 89.5ms | Allocations: 37794)
+Completed 200 OK in 93ms (Views: 91.2ms | ActiveRecord: 0.1ms | Allocations: 39189)
+
+
+Started DELETE "/metadata/3" for ::1 at 2022-08-17 09:50:10 -0300
+Processing by MetadataController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"3"}
+  [1m[36mMetadatum Load (0.1ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata" WHERE "metadata"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/metadata_controller.rb:63:in `set_metadatum'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/metadata_controller.rb:52:in `destroy'
+  [1m[36mMetadatum Destroy (0.2ms)[0m  [1m[31mDELETE FROM "metadata" WHERE "metadata"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/metadata_controller.rb:52:in `destroy'
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/metadata_controller.rb:52:in `destroy'
+Redirected to http://localhost:3000/metadata
+Completed 302 Found in 10ms (ActiveRecord: 5.0ms | Allocations: 2333)
+
+
+Started GET "/metadata" for ::1 at 2022-08-17 09:50:10 -0300
+Processing by MetadataController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/index.html.erb within layouts/application
+  [1m[36mMetadatum Load (0.5ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata"[0m
+  ↳ app/views/metadata/index.html.erb:6
+  Rendered metadata/index.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1033)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 3223)
+Completed 200 OK in 18ms (Views: 15.1ms | ActiveRecord: 0.5ms | Allocations: 3617)
+
+
+Started GET "/metadata" for ::1 at 2022-08-17 10:20:07 -0300
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MetadataController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/index.html.erb within layouts/application
+  [1m[36mMetadatum Load (0.3ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata"[0m
+  ↳ app/views/metadata/index.html.erb:6
+  Rendered metadata/index.html.erb within layouts/application (Duration: 9.1ms | Allocations: 1276)
+  Rendered layout layouts/application.html.erb (Duration: 59.3ms | Allocations: 35440)
+Completed 200 OK in 69ms (Views: 62.0ms | ActiveRecord: 0.3ms | Allocations: 40651)
+
+
+Started GET "/metadata/new" for ::1 at 2022-08-17 10:20:09 -0300
+Processing by MetadataController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/new.html.erb within layouts/application
+  Rendered metadata/_form.html.erb (Duration: 8.1ms | Allocations: 3023)
+  Rendered metadata/new.html.erb within layouts/application (Duration: 10.1ms | Allocations: 3333)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 5521)
+Completed 200 OK in 21ms (Views: 14.4ms | ActiveRecord: 0.6ms | Allocations: 9784)
+
+
+Started POST "/metadata" for ::1 at 2022-08-17 10:34:35 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MetadataController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "metadatum"=>{"filename"=>""}, "commit"=>"Create Metadatum"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/metadata_controller.rb:27:in `block in create'
+  [1m[36mMetadatum Create (0.2ms)[0m  [1m[32mINSERT INTO "metadata" ("filename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["filename", ""], ["created_at", "2022-08-17 13:34:35.797746"], ["updated_at", "2022-08-17 13:34:35.797746"]]
+  ↳ app/controllers/metadata_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/metadata_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/metadata/4
+Completed 302 Found in 23ms (ActiveRecord: 6.6ms | Allocations: 9450)
+
+
+Started GET "/metadata/4" for ::1 at 2022-08-17 10:34:35 -0300
+Processing by MetadataController#show as TURBO_STREAM
+  Parameters: {"id"=>"4"}
+  [1m[36mMetadatum Load (0.3ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata" WHERE "metadata"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/metadata_controller.rb:63:in `set_metadatum'
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/show.html.erb within layouts/application
+  Rendered metadata/_metadatum.html.erb (Duration: 0.7ms | Allocations: 174)
+  Rendered metadata/show.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1498)
+  Rendered layout layouts/application.html.erb (Duration: 53.8ms | Allocations: 35886)
+Completed 200 OK in 64ms (Views: 57.8ms | ActiveRecord: 0.3ms | Allocations: 40640)
+
+
+Started GET "/metadata/4/edit" for ::1 at 2022-08-17 10:34:43 -0300
+Processing by MetadataController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mMetadatum Load (0.2ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata" WHERE "metadata"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/metadata_controller.rb:63:in `set_metadatum'
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/edit.html.erb within layouts/application
+  Rendered metadata/_form.html.erb (Duration: 11.5ms | Allocations: 3070)
+  Rendered metadata/edit.html.erb within layouts/application (Duration: 14.4ms | Allocations: 3432)
+  Rendered layout layouts/application.html.erb (Duration: 21.9ms | Allocations: 5620)
+Completed 200 OK in 27ms (Views: 23.1ms | ActiveRecord: 0.2ms | Allocations: 6389)
+
+
+Started GET "/metadata/4" for ::1 at 2022-08-17 10:34:48 -0300
+Processing by MetadataController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mMetadatum Load (0.1ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata" WHERE "metadata"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/metadata_controller.rb:63:in `set_metadatum'
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/show.html.erb within layouts/application
+  Rendered metadata/_metadatum.html.erb (Duration: 0.2ms | Allocations: 21)
+  Rendered metadata/show.html.erb within layouts/application (Duration: 2.0ms | Allocations: 579)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 2775)
+Completed 200 OK in 9ms (Views: 7.1ms | ActiveRecord: 0.1ms | Allocations: 3494)
+
+
+Started DELETE "/metadata/4" for ::1 at 2022-08-17 10:34:50 -0300
+Processing by MetadataController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"4"}
+  [1m[36mMetadatum Load (0.1ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata" WHERE "metadata"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/metadata_controller.rb:63:in `set_metadatum'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/metadata_controller.rb:52:in `destroy'
+  [1m[36mMetadatum Destroy (0.2ms)[0m  [1m[31mDELETE FROM "metadata" WHERE "metadata"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/metadata_controller.rb:52:in `destroy'
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/metadata_controller.rb:52:in `destroy'
+Redirected to http://localhost:3000/metadata
+Completed 302 Found in 13ms (ActiveRecord: 5.6ms | Allocations: 2284)
+
+
+Started GET "/metadata" for ::1 at 2022-08-17 10:34:50 -0300
+Processing by MetadataController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/index.html.erb within layouts/application
+  [1m[36mMetadatum Load (0.5ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata"[0m
+  ↳ app/views/metadata/index.html.erb:6
+  Rendered metadata/index.html.erb within layouts/application (Duration: 6.5ms | Allocations: 1023)
+  Rendered layout layouts/application.html.erb (Duration: 12.2ms | Allocations: 3221)
+Completed 200 OK in 15ms (Views: 12.9ms | ActiveRecord: 0.5ms | Allocations: 3567)
+
+
+Started GET "/metadata" for 127.0.0.1 at 2022-08-19 07:57:11 -0300
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MetadataController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/index.html.erb within layouts/application
+  [1m[36mMetadatum Load (1.1ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata"[0m
+  ↳ app/views/metadata/index.html.erb:6
+  Rendered metadata/index.html.erb within layouts/application (Duration: 8.7ms | Allocations: 1271)
+  Rendered layout layouts/application.html.erb (Duration: 66.9ms | Allocations: 35856)
+Completed 200 OK in 93ms (Views: 70.5ms | ActiveRecord: 1.1ms | Allocations: 41040)
+
+
+Started GET "/metadata" for 127.0.0.1 at 2022-08-19 07:57:47 -0300
+Processing by MetadataController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/index.html.erb within layouts/application
+  Rendered metadata/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 3142)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 3186)
+Completed 500 Internal Server Error in 7ms (Allocations: 3828)
+
+
+  
+ActionView::Template::Error (undefined method `each' for "Metadatum.all":String):
+    3: <h1>Metadata</h1>
+    4: 
+    5: <div id="metadata">
+    6:   <% @metadata.each do |metadatum| %>
+    7:     <%= render metadatum %>
+    8:     <p>
+    9:       <%= link_to "Show this metadatum", metadatum %>
+  
+app/views/metadata/index.html.erb:6
+Started GET "/metadata" for 127.0.0.1 at 2022-08-19 07:59:20 -0300
+Processing by MetadataController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/index.html.erb within layouts/application
+  Rendered metadata/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 2713)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 2757)
+Completed 500 Internal Server Error in 5ms (Allocations: 3397)
+
+
+  
+ActionView::Template::Error (Missing partial metadata/_Metadata, application/_Metadata with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/home/renato/PycharmProjects/Octree/ROR/ruby/ruby_exercicies/rails/shp2psql/app/views"
+  * "/home/renato/.asdf/installs/ruby/2.7.5/gems/actiontext-7.0.3.1/app/views"
+  * "/home/renato/.asdf/installs/ruby/2.7.5/gems/actionmailbox-7.0.3.1/app/views"
+
+Did you mean?  metadata/metadatum
+               metadata/form
+               action_text/attachment_galleries/attachment_gallery
+               action_text/attachables/remote_image
+               action_text/contents/content
+               layouts/action_text/contents/content):
+    4: 
+    5: <div id="metadata">
+    6:   <% @metadata.each do |metadatum| %>
+    7:     <%= render metadatum %>
+    8:     <p>
+    9:       <%= link_to "Show this metadatum", metadatum %>
+   10:     </p>
+  
+app/views/metadata/index.html.erb:7
+app/views/metadata/index.html.erb:6:in `each'
+app/views/metadata/index.html.erb:6
+Started GET "/metadata" for 127.0.0.1 at 2022-08-19 07:59:39 -0300
+Processing by MetadataController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/metadata/index.html.erb:6
+  [1m[36mMetadatum Load (0.1ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata"[0m
+  ↳ app/views/metadata/index.html.erb:6
+  Rendered metadata/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1317)
+  Rendered layout layouts/application.html.erb (Duration: 20.1ms | Allocations: 15400)
+Completed 200 OK in 22ms (Views: 20.9ms | ActiveRecord: 0.3ms | Allocations: 16428)
+
+
+Started GET "/metadata" for 127.0.0.1 at 2022-08-19 08:04:25 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/metadata"):
+  
+Started GET "/metadata" for 127.0.0.1 at 2022-08-19 08:08:27 -0300
+Started GET "/metadata/" for 127.0.0.1 at 2022-08-19 08:08:27 -0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/renato/.asdf/installs/ruby/2.7.5/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/renato/.asdf/installs/ruby/2.7.5/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.5ms | Allocations: 392)
+Completed 200 OK in 6ms (Views: 3.8ms | Allocations: 1131)
+
+
+Started GET "/metadata" for 127.0.0.1 at 2022-08-19 08:09:55 -0300
+Started GET "/metadata/" for 127.0.0.1 at 2022-08-19 08:09:55 -0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/renato/.asdf/installs/ruby/2.7.5/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/renato/.asdf/installs/ruby/2.7.5/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.8ms | Allocations: 384)
+Completed 200 OK in 8ms (Views: 6.3ms | Allocations: 1124)
+
+
+Started GET "/" for 127.0.0.1 at 2022-08-19 08:09:59 -0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/renato/.asdf/installs/ruby/2.7.5/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/renato/.asdf/installs/ruby/2.7.5/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 24)
+Completed 200 OK in 1ms (Views: 0.4ms | Allocations: 212)
+
+
+Started GET "/metadata" for 127.0.0.1 at 2022-08-19 08:10:07 -0300
+Started GET "/metadata/" for 127.0.0.1 at 2022-08-19 08:10:07 -0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/renato/.asdf/installs/ruby/2.7.5/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/renato/.asdf/installs/ruby/2.7.5/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 32)
+Completed 200 OK in 1ms (Views: 0.4ms | Allocations: 223)
+
+
+Started GET "/metadata" for 127.0.0.1 at 2022-08-19 08:10:31 -0300
+Processing by MetadataController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/metadata/index.html.erb:6
+  [1m[36mMetadatum Load (0.1ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata"[0m
+  ↳ app/views/metadata/index.html.erb:6
+  Rendered metadata/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1576)
+  Rendered layout layouts/application.html.erb (Duration: 30.6ms | Allocations: 15868)
+Completed 200 OK in 39ms (Views: 32.7ms | ActiveRecord: 0.5ms | Allocations: 17134)
+
+

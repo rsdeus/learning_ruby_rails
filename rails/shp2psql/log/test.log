@@ -1,0 +1,224 @@
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "metadata"[0m
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "metadata" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "filename" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (5.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220816191002)[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2022-08-17 13:27:51.878430"], ["updated_at", "2022-08-17 13:27:51.878430"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "99b4295f0789db56aa767231ed1b7528e3631874"], ["created_at", "2022-08-17 13:27:51.887650"], ["updated_at", "2022-08-17 13:27:51.887650"]]
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/metadata" for 127.0.0.1 at 2022-08-17 10:27:51 -0300
+Processing by MetadataController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/index.html.erb within layouts/application
+  [1m[36mMetadatum Load (0.2ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata"[0m
+  Rendered metadata/index.html.erb within layouts/application (Duration: 5.4ms | Allocations: 720)
+  Rendered layout layouts/application.html.erb (Duration: 324.3ms | Allocations: 89779)
+Completed 200 OK in 338ms (Views: 328.7ms | ActiveRecord: 0.2ms | Allocations: 94953)
+Started GET "/metadata/new" for 127.0.0.1 at 2022-08-17 10:27:52 -0300
+Processing by MetadataController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/new.html.erb within layouts/application
+  Rendered metadata/_form.html.erb (Duration: 4.4ms | Allocations: 2673)
+  Rendered metadata/new.html.erb within layouts/application (Duration: 5.2ms | Allocations: 2943)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 4323)
+Completed 200 OK in 15ms (Views: 6.9ms | ActiveRecord: 0.7ms | Allocations: 8494)
+Started POST "/metadata" for 127.0.0.1 at 2022-08-17 10:27:52 -0300
+Processing by MetadataController#create as HTML
+  Parameters: {"metadatum"=>{"filename"=>"Municipios_2022_IBGE"}, "commit"=>"Create Metadatum"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMetadatum Create (0.2ms)[0m  [1m[32mINSERT INTO "metadata" ("filename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["filename", "Municipios_2022_IBGE"], ["created_at", "2022-08-17 13:27:52.366390"], ["updated_at", "2022-08-17 13:27:52.366390"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/metadata/1
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms | Allocations: 848)
+Started GET "/metadata/1" for 127.0.0.1 at 2022-08-17 10:27:52 -0300
+Processing by MetadataController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMetadatum Load (0.2ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata" WHERE "metadata"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/show.html.erb within layouts/application
+  Rendered metadata/_metadatum.html.erb (Duration: 0.5ms | Allocations: 158)
+  Rendered metadata/show.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1050)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 2422)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.2ms | Allocations: 3448)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/metadata" for 127.0.0.1 at 2022-08-17 10:28:19 -0300
+Processing by MetadataController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/index.html.erb within layouts/application
+  [1m[36mMetadatum Load (0.1ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata"[0m
+  Rendered metadata/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 720)
+  Rendered layout layouts/application.html.erb (Duration: 31.6ms | Allocations: 33790)
+Completed 200 OK in 38ms (Views: 33.2ms | ActiveRecord: 0.1ms | Allocations: 38962)
+Started GET "/metadata/new" for 127.0.0.1 at 2022-08-17 10:28:20 -0300
+Processing by MetadataController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/new.html.erb within layouts/application
+  Rendered metadata/_form.html.erb (Duration: 3.4ms | Allocations: 2673)
+  Rendered metadata/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 2938)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 4318)
+Completed 200 OK in 10ms (Views: 5.3ms | ActiveRecord: 0.3ms | Allocations: 8454)
+Started POST "/metadata" for 127.0.0.1 at 2022-08-17 10:28:20 -0300
+Processing by MetadataController#create as HTML
+  Parameters: {"metadatum"=>{"filename"=>"Municipios_2022_IBGE"}, "commit"=>"Create Metadatum"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMetadatum Create (0.2ms)[0m  [1m[32mINSERT INTO "metadata" ("filename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["filename", "Municipios_2022_IBGE"], ["created_at", "2022-08-17 13:28:20.054811"], ["updated_at", "2022-08-17 13:28:20.054811"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/metadata/1
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms | Allocations: 813)
+Started GET "/metadata/1" for 127.0.0.1 at 2022-08-17 10:28:20 -0300
+Processing by MetadataController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMetadatum Load (0.1ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata" WHERE "metadata"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/show.html.erb within layouts/application
+  Rendered metadata/_metadatum.html.erb (Duration: 0.4ms | Allocations: 158)
+  Rendered metadata/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1036)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 2408)
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.1ms | Allocations: 2941)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/metadata" for 127.0.0.1 at 2022-08-17 10:28:35 -0300
+Processing by MetadataController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/index.html.erb within layouts/application
+  [1m[36mMetadatum Load (0.1ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata"[0m
+  Rendered metadata/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 720)
+  Rendered layout layouts/application.html.erb (Duration: 31.8ms | Allocations: 33319)
+Completed 200 OK in 38ms (Views: 33.5ms | ActiveRecord: 0.1ms | Allocations: 38491)
+Started GET "/metadata/new" for 127.0.0.1 at 2022-08-17 10:28:35 -0300
+Processing by MetadataController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/new.html.erb within layouts/application
+  Rendered metadata/_form.html.erb (Duration: 3.3ms | Allocations: 2673)
+  Rendered metadata/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 2938)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 4318)
+Completed 200 OK in 10ms (Views: 5.2ms | ActiveRecord: 0.4ms | Allocations: 8454)
+Started POST "/metadata" for 127.0.0.1 at 2022-08-17 10:28:35 -0300
+Processing by MetadataController#create as HTML
+  Parameters: {"metadatum"=>{"filename"=>"Municipios_2022_IBGE"}, "commit"=>"Create Metadatum"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMetadatum Create (0.2ms)[0m  [1m[32mINSERT INTO "metadata" ("filename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["filename", "Municipios_2022_IBGE"], ["created_at", "2022-08-17 13:28:35.289155"], ["updated_at", "2022-08-17 13:28:35.289155"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/metadata/1
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms | Allocations: 813)
+Started GET "/metadata/1" for 127.0.0.1 at 2022-08-17 10:28:35 -0300
+Processing by MetadataController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMetadatum Load (0.1ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata" WHERE "metadata"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/show.html.erb within layouts/application
+  Rendered metadata/_metadatum.html.erb (Duration: 0.6ms | Allocations: 158)
+  Rendered metadata/show.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1042)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 2414)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.1ms | Allocations: 2947)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/metadata" for 127.0.0.1 at 2022-08-17 10:29:00 -0300
+Processing by MetadataController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/index.html.erb within layouts/application
+  [1m[36mMetadatum Load (0.1ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata"[0m
+  Rendered metadata/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 721)
+  Rendered layout layouts/application.html.erb (Duration: 32.4ms | Allocations: 33760)
+Completed 200 OK in 39ms (Views: 34.1ms | ActiveRecord: 0.1ms | Allocations: 38932)
+Started GET "/metadata/new" for 127.0.0.1 at 2022-08-17 10:29:00 -0300
+Processing by MetadataController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/new.html.erb within layouts/application
+  Rendered metadata/_form.html.erb (Duration: 3.3ms | Allocations: 2673)
+  Rendered metadata/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 2938)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 4318)
+Completed 200 OK in 10ms (Views: 5.2ms | ActiveRecord: 0.4ms | Allocations: 8454)
+Started POST "/metadata" for 127.0.0.1 at 2022-08-17 10:29:00 -0300
+Processing by MetadataController#create as HTML
+  Parameters: {"metadatum"=>{"filename"=>"Municipios_2022_IBGE"}, "commit"=>"Create Metadatum"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMetadatum Create (0.2ms)[0m  [1m[32mINSERT INTO "metadata" ("filename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["filename", "Municipios_2022_IBGE"], ["created_at", "2022-08-17 13:29:00.943131"], ["updated_at", "2022-08-17 13:29:00.943131"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/metadata/1
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms | Allocations: 813)
+Started GET "/metadata/1" for 127.0.0.1 at 2022-08-17 10:29:00 -0300
+Processing by MetadataController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMetadatum Load (0.1ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata" WHERE "metadata"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/show.html.erb within layouts/application
+  Rendered metadata/_metadatum.html.erb (Duration: 0.4ms | Allocations: 158)
+  Rendered metadata/show.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1040)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 2412)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.1ms | Allocations: 2945)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/metadatatum" for 127.0.0.1 at 2022-08-17 10:29:26 -0300
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2022-08-17 10:29:46 -0300
+Processing by MetadataController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/index.html.erb within layouts/application
+  [1m[36mMetadatum Load (0.2ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata"[0m
+  Rendered metadata/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 720)
+  Rendered layout layouts/application.html.erb (Duration: 31.8ms | Allocations: 33375)
+Completed 200 OK in 38ms (Views: 33.5ms | ActiveRecord: 0.2ms | Allocations: 38547)
+Started GET "/metadata/new" for 127.0.0.1 at 2022-08-17 10:29:46 -0300
+Processing by MetadataController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/new.html.erb within layouts/application
+  Rendered metadata/_form.html.erb (Duration: 3.4ms | Allocations: 2673)
+  Rendered metadata/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 2938)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 4318)
+Completed 200 OK in 10ms (Views: 5.3ms | ActiveRecord: 0.4ms | Allocations: 8454)
+Started POST "/metadata" for 127.0.0.1 at 2022-08-17 10:29:46 -0300
+Processing by MetadataController#create as HTML
+  Parameters: {"metadatum"=>{"filename"=>"Municipios_2022_IBGE"}, "commit"=>"Create Metadatum"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMetadatum Create (0.2ms)[0m  [1m[32mINSERT INTO "metadata" ("filename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["filename", "Municipios_2022_IBGE"], ["created_at", "2022-08-17 13:29:46.630999"], ["updated_at", "2022-08-17 13:29:46.630999"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/metadata/1
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms | Allocations: 813)
+Started GET "/metadata/1" for 127.0.0.1 at 2022-08-17 10:29:46 -0300
+Processing by MetadataController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMetadatum Load (0.1ms)[0m  [1m[34mSELECT "metadata".* FROM "metadata" WHERE "metadata"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering metadata/show.html.erb within layouts/application
+  Rendered metadata/_metadatum.html.erb (Duration: 0.4ms | Allocations: 158)
+  Rendered metadata/show.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1038)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 2410)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.1ms | Allocations: 2943)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m

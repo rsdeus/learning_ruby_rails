@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  # root "articles#index"
+  # root "metadata#index"
+  mount Shp2psql::Application, at: '/metadata'
 end
