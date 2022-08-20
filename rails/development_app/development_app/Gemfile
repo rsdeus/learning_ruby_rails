@@ -11,7 +11,7 @@ gem "decidim-elections", path: ".."
 gem "decidim-initiatives", path: ".."
 gem "decidim-templates", path: ".."
 
-gem "decidim-spam_signal", path: "./vendor"
+gem 'decidim-exercises', path: 'decidim-exercises'
 
 gem "bootsnap", "~> 1.4"
 
@@ -50,4 +50,3 @@ group :development do
 end
 
 
-gem 'decidim-exercise', path: './vendor/decidim-exercise'

@@ -230,18 +230,10 @@ PATH
       decidim-core (= 0.24.3)
 
 PATH
-  remote: vendor/decidim-exercise
+  remote: decidim-exercises
   specs:
-    decidim-exercise (0.1.0)
-      rails (~> 5.2.6)
-
-PATH
-  remote: vendor
-  specs:
-    decidim-spam_signal (0.24.3)
-      decidim-admin (= 0.24.3)
-      decidim-comments (= 0.24.3)
-      decidim-core (= 0.24.3)
+    decidim-exercises (0.1.0)
+      decidim-core
 
 GEM
   remote: https://rubygems.org/
@@ -918,9 +910,8 @@ DEPENDENCIES
   decidim-consultations!
   decidim-dev!
   decidim-elections!
-  decidim-exercise!
+  decidim-exercises!
   decidim-initiatives!
-  decidim-spam_signal!
   decidim-templates!
   faker (~> 2.14)
   flamegraph
