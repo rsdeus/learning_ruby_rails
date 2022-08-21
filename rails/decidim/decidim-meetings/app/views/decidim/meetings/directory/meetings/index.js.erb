@@ -1,0 +1,15 @@
+var $meetings = $('#meetings');
+
+$meetings.html('<%= j(render partial: "meetings").strip.html_safe %>');
+
+var $dropdownMenu = $('.dropdown.menu', $meetings);
+$dropdownMenu.foundation();
+
+var markerData = JSON.parse('<%= escape_javascript meetings_data_for_map(search.results).to_json.html_safe %>');
+
+var $map = $("#map");
+var controller = $map.data("map-controller");
+if (controller) {
+  controller.clearMarkers();
+  controller.addMarkers(markerData);
+}

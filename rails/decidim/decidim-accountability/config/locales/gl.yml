@@ -1,0 +1,246 @@
+gl:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Estado
+        decidim_category_id: Categoría
+        decidim_scope_id: Alcance
+        description: Descrición
+        end_date: Data de finalización
+        progress: Progreso
+        project_ids: Proxectos incluídos
+        proposals: Propostas incluídas
+        start_date: Data de inicio
+        title: Título
+        updated_at: Actualizado en
+      status:
+        description: Descrición
+        key: Clave
+        name: Nome
+        progress: Progreso
+      timeline_entry:
+        description: Descrición
+        entry_date: Data
+    models:
+      decidim/accountability/proposal_linked_event: Proposta incluída nun resultado
+      decidim/accountability/result_progress_updated_event: Progreso de resultados actualizado
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Resultado
+        other: Resultados
+  decidim:
+    accountability:
+      actions:
+        attachment_collections: Cartafoles
+        attachments: Ficheiros anexos
+        confirm_destroy: Estás seguro de que queres eliminar este %{name}?
+        destroy: Eliminar
+        edit: Editar
+        import_csv: Importar CSV
+        new: Novo %{name}
+        preview: Vista previa
+        timeline_entries: Evolución do proxecto
+        title: Accións
+      admin:
+        exports:
+          result_comments: Comentarios
+          results: Resultados
+        import_results:
+          new:
+            import: Importar
+            info: "<p>Recomendámosche seguir os seguintes pasos:</p><ol><li>Crear os estados para os Resultados que desexes engadir (<a href='%{link_new_status}' target='_blank'>ligazón</a>)</li><li>Crear polo menos un Resultado de xeito manual a través deste panel de administrador (<a href='%{link_new_result}' target='_blank'>ligazón</a>) antes de usar Importar, para entender o formato e que precisas encher.</li><li>Descargar o ficheiro en formato CSV (%{link_export_csv})</li><li>Fai os trocos localmente. Só podes trocar as seguintes columnas do CSV:</li></ol><ul><li><b>category/id:</b> ID da categoría</li><li><b>scope/id:</b> ID do ámbito</li><li><b>parent/id:</b> ID do pai (para Resultados relacionados). Opcional</li><li><b>title/I18N:</b> Título no idioma X</li><li><b>description/I18N:</b> Descrición no idioma X</li><li><b>start_date:</b> data na que se inicia a execución do resultado (formato YYYY-MM-DD)</li><li><b>end_date:</b> data na que remata a execución (formato YYYY-MM-DD)</li><li><b>status/id:</b> ID do estado do resultado</li><li><b>progress:</b> Porcentaxe (de 0 a 100) da execución</li><li><b>proposals_ids:</b> ID interno das propostas relacionadas (separadas por comas). Isto converterase automaticamente en <span class='attribute-name'>proposal_url</span></li></ul>"
+            link: ligazón
+            title: Importar resultados dun CSV
+        imports:
+          create:
+            success: Importando o ficheiro. Recibirás un correo electrónico nos vindeiros minutos co resultado da importación
+        models:
+          result:
+            name: Resultado
+          status:
+            name: Estado
+          timeline_entry:
+            name: Entrada de liña de tempo
+        results:
+          create:
+            invalid: Produciuse un problema ao crear este resultado
+            success: Resultado creado con éxito
+          destroy:
+            success: Resultado eliminado correctamente
+          edit:
+            title: Editar resultado
+            update: Actualizar resultado
+          index:
+            title: Resultados
+          new:
+            create: Crear resultado
+            title: Novo resultado
+          update:
+            invalid: Produciuse un problema ao actualizar este resultado
+            success: Resultado actualizado correctamente
+        shared:
+          subnav:
+            statuses: Estatus
+        statuses:
+          create:
+            invalid: Produciuse un problema ao crear este estado
+            success: Estado creado con éxito
+          destroy:
+            success: Estado eliminado con éxito
+          edit:
+            title: Editar o estado
+            update: Actualizar o estado
+          index:
+            title: Estatus
+          new:
+            create: Crear estado
+            title: Novo estado
+          update:
+            invalid: Houbo un problema ao actualizar este estado
+            success: Estado actualizado correctamente
+        timeline_entries:
+          create:
+            invalid: Produciuse un problema ao crear esta entrada
+            success: Entrada creada con éxito
+          destroy:
+            success: Entrada correctamente eliminada
+          edit:
+            title: Editar entrada
+            update: Actualizar a entrada
+          index:
+            title: Entradas da liña de tempo do proxecto
+          new:
+            create: Crear entrada
+            title: Nova entrada
+          update:
+            invalid: Produciuse un problema ao actualizar esta entrada
+            success: Entrada actualizada con éxito
+      admin_log:
+        result:
+          create: "%{user_name} resultado creado %{resource_name} en %{space_name}"
+          delete: "%{user_name} eliminou o %{resource_name} resultado en %{space_name}"
+          update: "%{user_name} resultado actualizado %{resource_name} en %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Non se atopou o pai na base de datos (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Datas
+          results: Resultados
+          unspecified: Sen especificar
+      import_mailer:
+        import:
+          errors: Erros
+          errors_present: Produciuse un erro ao importar os resultados
+          row_number: Fila
+          subject: Resultados importados con éxito
+          success: Resultados importados con éxito. Podes revisar os resultados no panel de administración.
+      last_activity:
+        new_result_at_html: "<span>Novo resultado en %{link}</span>"
+      models:
+        result:
+          fields:
+            category: Categoría
+            created_at: Creado
+            end_date: Data de finalización
+            id: ID
+            progress: Progreso
+            scope: Ámbito
+            start_date: Data de inicio
+            status: Estado
+            title: Título
+        status:
+          fields:
+            description: Descrición
+            key: Clave
+            name: Nome
+            progress: Progreso
+        timeline_entry:
+          fields:
+            description: Descrición
+            entry_date: Data
+      result_m:
+        executed: Executado
+        view: Ver
+      results:
+        count:
+          results_count:
+            one: 1 resultado
+            other: "%{count} resultados"
+        filters:
+          all: Todo
+          scopes: Ámbitos
+        home:
+          categories_label: Categorías
+          subcategories_label: Subcategorías
+        home_header:
+          global_status: Estado de execución global
+        nav_breadcrumb:
+          global: Execución global
+        search:
+          search: Busca de accións
+        show:
+          stats:
+            attendees: Asistentes
+            back_to_resource: Volver ao resultado
+            comments: Comentarios
+            contributions: Contribucións
+            last_edited_by: Última edición por
+            last_updated_at: Última actualización en
+            meetings: Reunións
+            proposals: Propostas
+            votes: Soporta
+        timeline:
+          title: Evolución do proxecto
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Categoría
+          scope_id_eq:
+            label: Ámbito
+          status_id_eq:
+            label: Estado
+    components:
+      accountability:
+        name: Responsabilidade
+        settings:
+          global:
+            categories_label: Nome para "Categorías"
+            comments_enabled: Comentarios habilitados
+            comments_max_length: Lonxitude máxima dos comentarios (0 para valor predefinido)
+            display_progress_enabled: Mostrar o progreso
+            heading_leaf_level_results: Nome para "Proxectos"
+            heading_parent_level_results: Nome para "Resultados"
+            intro: Intro
+            scope_id: Ámbito
+            scopes_enabled: Ámbitos habilitados
+            subcategories_label: Nome para "Subcategorías"
+          step:
+            comments_blocked: Comentarios bloqueados
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'A proposta "%{proposal_title}" foi incluída nun resultado. Podes velo desde esta páxina:'
+          email_outro: Recibiches esta notificación porque estás seguindo "%{proposal_title}". Podes deixar de recibir notificacións seguindo a ligazón anterior.
+          email_subject: Unha actualización a %{proposal_title}
+          notification_title: A proposta <a href="%{proposal_path}">%{proposal_title}</a> foi incluída no <a href="%{resource_path}">%{resource_title}</a> resultado.
+        result_progress_updated:
+          email_intro: 'O resultado "%{resource_title}", que inclúe a proposta "%{proposal_title}", agora é o %{progress}% completo. Podes velo desde esta páxina:'
+          email_outro: Recibiches esta notificación porque estás seguindo "%{proposal_title}" e esta proposta inclúese no resultado "%{resource_title}". Podes deixar de recibir notificacións seguindo a ligazón anterior.
+          email_subject: Unha actualización a %{resource_title} avances
+          notification_title: O resultado <a href="%{resource_path}">%{resource_title}</a>, que inclúe a proposta <a href="%{proposal_path}">%{proposal_title}</a>, agora é o %{progress}% completo.
+    metrics:
+      results:
+        description: Número de resultados xerados
+        object: resultados
+        title: Resultados
+    participatory_spaces:
+      highlighted_results:
+        see_all: Ver todos os resultados (%{count})
+    resource_links:
+      included_projects:
+        result_project: Proxectos incluídos neste resultado
+      included_proposals:
+        result_proposal: Propostas incluídas neste resultado
