@@ -1,5 +1,5 @@
 module Decidim
-  module Exercise
+  module Exercises
     module ApplicationHelper
     end
   end

@@ -1,3 +1,6 @@
+require "rails"
+require "decidim/core"
+
 module Decidim
   module Exercises
     # Decidim's core Rails Engine.
@@ -9,7 +12,8 @@ module Decidim
 
       routes do
         #get '/exercise', to: 'exercises#index'
-        resources :exercises, only: [:index], controller: :application
+        resources :exercises, only: [:index]
+        root to: "exercises#index"
       end
 
     end

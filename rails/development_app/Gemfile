@@ -11,8 +11,6 @@ gem "decidim-elections", path: "."
 gem "decidim-initiatives", path: "."
 gem "decidim-templates", path: "."
 
-gem "decidim-module-spam_signal", path: "./development_app/vendor"
-
 gem "bootsnap", "~> 1.4"
 
 gem "puma", ">= 5.3.1"

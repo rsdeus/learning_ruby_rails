@@ -1,8 +1,7 @@
 require "decidim/exercises/engine"
-require "decidim/exercises"
 
 module Decidim
-  module Exercise
+  module Exercises
     # Your code goes here...
   end
 end
