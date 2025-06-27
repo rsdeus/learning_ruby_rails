@@ -1,0 +1,31 @@
+services:
+  article-app:
+    command: bash -c "sleep infinity"
+    build: .
+    entrypoint: ""
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/home/article/app
+    environment:
+      - PORT=3000
+      - DATABASE_URL=postgresql://artic:pleaseChangeMe@pg:5432/article
+      - DATABASE_HOSTNAME=pg
+      - DATABASE_USERNAME=artic
+      - DATABASE_PASSWORD=pleaseChangeMe
+      - RAILS_ENV=development
+      - ROOT=/home/article/app
+    depends_on:
+      - pg
+
+  pg:
+    image: postgres:15-bookworm
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DATABASE=article
+      - POSTGRES_USER=artic
+      - POSTGRES_PASSWORD=pleaseChangeMe
+
+volumes:
+  pg-data: {}
